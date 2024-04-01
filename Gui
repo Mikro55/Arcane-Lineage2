@@ -94,7 +94,7 @@ end
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Mikro55/Arcane_Lineage/main/Hacker%20Hub')))()
 local Window = OrionLib:MakeWindow({
-    Name = "Fool Hub | Arcane Lineage",
+    Name = "Hacker Hub | Arcane Lineage",
     HidePremium = false,
     SaveConfig = true,
     ConfigFolder = "FoolArcLin"
