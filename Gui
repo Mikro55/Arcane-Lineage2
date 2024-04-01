@@ -732,7 +732,7 @@ Misc:AddDropdown({
 Misc:AddDropdown({
     Name = "Auto Drop Pseudos",
     Default = "",
-    Options = { "Memory Fragment", "Soul Dust", "Phoenix Tear", "Resplendant Essence", "Lineage Shard", "Void Key", "Narthana's Sigil", "Darksigil" },
+    Options = { "Memory Fragment", "Soul Dust", "Phoenix Tear", "Resplendant Essence", "Lineage Shard", "Void Key", "Echo Shard" },
     Callback = function(AutoDrop)
         if AutoDrop == "Memory Fragment" then
             while task.wait() do
@@ -793,15 +793,6 @@ Misc:AddDropdown({
                 local args = {
                     [1] = "Drop",
                     [2] = "Echo Shard" 
-                
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Darksigil" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Darksigil" 
                 
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
