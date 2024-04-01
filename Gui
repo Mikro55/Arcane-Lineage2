@@ -730,11 +730,20 @@ Misc:AddDropdown({
 })
 
 Misc:AddDropdown({
-    Name = "Auto Drop Pseudos",
+    Name = "Pseudo To Drop",
     Default = "",
     Options = { "Memory Fragment", "Soul Dust", "Phoenix Tear", "Resplendant Essence", "Lineage Shard", "Void Key", "Echo Shard" },
-    Callback = function(AutoDrop)
-        if AutoDrop == "Memory Fragment" then
+    Callback = function(PseudoV)
+        Pseudos = PseudoV
+    end
+})
+
+Misc:AddToggle({
+    Name = "Auto Drop Pseudo",
+    Default = false,
+    Callback = function(PseudoV)
+        getgenv().DropP = (Value)
+        if Pseudos == "Memory Fragment" then
             while task.wait() do
                 local args = {
                     [1] = "Drop",
@@ -743,60 +752,70 @@ Misc:AddDropdown({
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
                 end
-        elseif AutoDrop == "Soul Dust" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Soul Dust" 
+            elseif Pseudos == "Soul Dust" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Soul Dust" 
                 
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Phoenix Tear" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Phoenix Tear" 
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            elseif Pseudos == "Phoenix Tear" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Phoenix Tear" 
                 
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Resplendant Essence" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Resplendant Essence" 
-                
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Lineage Shard" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Lineage Shard" 
-                
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Void Key" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Void Key" 
-                
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
-        elseif AutoDrop == "Echo Shard" then
-            while task.wait() do
-                local args = {
-                    [1] = "Drop",
-                    [2] = "Echo Shard" 
-                
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
-                end
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            elseif Pseudos == "Resplendant Essence" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Resplendant Essence" 
+                    
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            elseif Pseudos == "Lineage Shard" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Lineage Shard" 
+                    
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            elseif Pseudos == "Void Key" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Void Key" 
+                    
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            elseif Pseudos == "Echo Shard" then
+                while task.wait() do
+                    local args = {
+                        [1] = "Drop",
+                        [2] = "Echo Shard" 
+                    
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Information"):WaitForChild("InventoryManage"):FireServer(unpack(args))
+                    end
+            else
+                OrionLib:MakeNotification({
+                    Name = "Missing Pseudo:",
+                    Content = tostring(Pseudo),
+                    Time = 5
+                })
+            end
+            if not DropP then
+                break
+            end
         end
     end
 })
